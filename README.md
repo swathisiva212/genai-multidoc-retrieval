@@ -13,6 +13,7 @@ urls: A list of URLs pointing to the research papers (optional for download).
 papers: Local filenames of the PDF files.
 Output:
 Tools for each paper (vector_tool and summary_tool).
+
 2. Set Up Document Processing Tools
 Import the get_doc_tools function for generating document-specific tools.
 Iterate over the papers list:
@@ -21,22 +22,27 @@ For each paper, call get_doc_tools with:
 The paper file path.
 The stem of the file path (used as an identifier).
 Store the generated tools (vector_tool and summary_tool) in a dictionary, mapping to the paper.
+
 3. Initialize Tools
 Combine all tools from the dictionary into a single list (initial_tools).
+
 4. Set Up the LLM
 Import and initialize the OpenAI LLM:
 Use the gpt-4 model.
+
 5. Configure the Agent Worker
 Import FunctionCallingAgentWorker and AgentRunner to manage agent functionalities.
 Create an agent worker using FunctionCallingAgentWorker.from_tools:
 Pass the combined initial_tools list.
 Set the LLM (llm).
 Enable verbose output for detailed logging.
+
 6. Run the Agent Query
 Create an AgentRunner instance with the configured worker.
 Query the agent with a question:
 Include specific queries about datasets and results from the LongLoRA paper.
-7. Output the Result
+
+8. Output the Result
 Retrieve and display the response from the agent.
 
 ### PROGRAM:
